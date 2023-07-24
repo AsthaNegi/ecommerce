@@ -67,20 +67,7 @@ function Header(){
    const handleClose=()=>{
      setOpen(false);
    }
-   
-   const list=()=>{
-   
-     <Box style={{width:200}} onClick={handleClose}>
-          <List>
-              <ListItemButton button>
-                    <CustomButtons/>
-               </ListItemButton>
-          </List>
-     </Box>
-   
-   }
-   
-   
+        
 
   return(
         <StyledHeader>
@@ -93,8 +80,16 @@ function Header(){
                     <Menu/>
                </MenuButton>
               {/* open and onClose are props  */}
-                <Drawer open={open} onClose={handleClose}>
-                    {list()} 
+                <Drawer open={open} onClose={handleClose}> 
+                   {
+                    <Box style={{width:200}} onClick={handleClose}>
+                       <List>
+                          <ListItemButton button>
+                              <CustomButtons/>
+                          </ListItemButton>
+                      </List>
+                   </Box>
+                   }
                 </Drawer>
               {/* defining to="" path since Component is now Link component */}                   
                <Component to="/">
