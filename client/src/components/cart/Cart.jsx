@@ -1,9 +1,17 @@
-import {Typography,Grid,Box} from "@mui/material";
+import {Typography,Grid,Box,styled} from "@mui/material";
 import {useSelector} from "react-redux";
 
 // components 
 import CartItem from "./CartItem";
 import TotalView from "./TotalView";
+
+const Container =styled(Grid)`
+  padding:30px 135px;
+`;
+
+const Header=styled(Box)`
+  padding:15px 24px;
+`;
 
 const Cart=()=>{
 
@@ -14,16 +22,16 @@ const Cart=()=>{
             {
                 cartItems.length?
                    <Grid container >
-                      <Grid item lg={9} md={9} sm={12} xs={12}>
-                        <Box>
+                      <Container item lg={9} md={9} sm={12} xs={12}>
+                        <Header>
                             <Typography>My Cart ({cartItems.length})</Typography>
-                        </Box>
+                        </Header>
                         {
                             cartItems.map(item=>(
-                               <CartItem/>
+                               <CartItem item={item}/>
                             ))
                         }
-                      </Grid>
+                      </Container>
                       <Grid item lg={3} md={3} sm={12} xs={12}>
                         <TotalView/>
                       </Grid>
