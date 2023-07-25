@@ -1,4 +1,7 @@
 import {Typography,Box,Button,styled} from "@mui/material";
+import {removeFromCart} from "../../redux/actions/cartActions"
+import {useDispatch} from "react-redux";
+
 
 import {addEllipsis} from "../../utils/common-utils";
 
@@ -34,6 +37,13 @@ const Remove=styled(Button)`
 const CartItem=({item})=>{
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
 
+    const dispatch=useDispatch();
+
+    const removeItemFromCart=(id)=>{
+    //    dispatching removeFromCart func which is defined in redux actions  
+       dispatch(removeFromCart(id));
+    }
+
     return(
         <Component>
             <LeftComponent>
@@ -50,7 +60,7 @@ const CartItem=({item})=>{
                         <Box component="span" style={{color:"#878787"}}><strike>₹{item.price.mrp}</strike></Box>&nbsp;&nbsp;&nbsp;
                         <Box component="span" style={{color:"#388E3C"}}>{item.price.discount}</Box>
                </Typography> 
-               <Remove>Remove</Remove>
+               <Remove onClick={()=>removeItemFromCart(item.id)}>Remove</Remove>
             </Box>
         </Component>
         

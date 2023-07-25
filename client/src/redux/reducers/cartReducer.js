@@ -14,6 +14,7 @@ export const cartReducer=(state = {cartItems:[]},action)=>{
                 return {...state,cartItems:[...state.cartItems,item]}
             }
       case actionType.REMOVE_FROM_CART:
+        // will filter all the elemnts of cartItems and return only those items for which id!== action.payload which is the id of deleted product 
         return{...state,cartItems:state.cartItems.filter(product=>product.id!==action.payload)}
       default:
         return state;
