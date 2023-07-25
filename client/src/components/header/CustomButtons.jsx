@@ -1,8 +1,9 @@
 import {useState,useContext} from "react";
 
-import {Box,Button,Typography,styled} from "@mui/material";
+import {Box,Button,Typography,Badge,styled} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 // context 
 import {DataContext} from "../../context/DataProvider";
@@ -57,6 +58,8 @@ function CustomButtons(){
 
    const {account,setAccount}=useContext(DataContext);
 
+   const {cartItems} =useSelector(state=>state.cart);
+
    function openDialog(){
        setOpen(true);
    }
@@ -76,8 +79,10 @@ function CustomButtons(){
         <Typography style={{marginTop:3,width:135}}>Become a Seller</Typography>
         <Typography>More</Typography>
         <Container to="/cart">
-             <ShoppingCartIcon/>
-             <Typography>Cart</Typography>
+           <Badge badgeContent={cartItems?.length} color="secondary">
+               <ShoppingCartIcon/>
+            </Badge> 
+               <Typography style={{marginLeft:10}}>Cart</Typography>
         </Container>
         <LoginDialog 
             open={open} 
