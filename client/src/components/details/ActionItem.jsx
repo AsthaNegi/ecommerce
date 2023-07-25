@@ -1,8 +1,14 @@
+import {useState} from "react";
 import {Box,Button,styled} from "@mui/material";
 
 
 import {ShoppingCart as Cart,FlashOn as Flash} from "@mui/icons-material";
 
+// routing hook
+import {useNavigate} from "react-router-dom";
+// dispatch to call the reducer 
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../redux/actions/cartActions";
 
 const LeftContainer=styled(Box)(({theme})=>({
    minWidth:"40%",
@@ -33,12 +39,30 @@ const StyledButton=styled(Button)(({theme})=>({
  
 
 const ActionItem =({product})=>{
+   
+   // initialize the navigate hook
+   const navigate=useNavigate();
+   // initialize the dispatch 
+   const dispatch=useDispatch();
+
+   const [quantity,setQuantity]=useState(1);
+
+   const {id} =product;
+
+   const addItemToCart=()=>{
+       
+      // calling the dispatch foe the addToCart func defined in the redux actions 
+       dispatch(addToCart(id,quantity));
+      // navigate hook is used to navigate to a certain ath
+      navigate("/cart");
+   }
+
    return(
       <LeftContainer>
          <Box style={{padding:"15px 20px",border:"1px solid #f0f0f0"}}>
            <Image src={product.detailUrl} alt="product"/>
          </Box>        
-         <StyledButton variant="contained" style={{marginRight:10,background:"#ff9f00"}}><Cart/>Add to Cart</StyledButton>
+         <StyledButton variant="contained" onClick={()=>addItemToCart()} style={{marginRight:10,background:"#ff9f00"}}><Cart/>Add to Cart</StyledButton>
          <StyledButton variant="contained" style={{background:"#fb541b"}}><Flash/>Buy Now</StyledButton>
       </LeftContainer>
    );
