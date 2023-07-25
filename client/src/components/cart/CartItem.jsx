@@ -2,6 +2,8 @@ import {Typography,Box,Button,styled} from "@mui/material";
 
 import {addEllipsis} from "../../utils/common-utils";
 
+import GroupedButton from "./ButtonGroup";
+
 const Component=styled(Box)`
    border-top:1px solid #f0f0f0;
    display:flex;
@@ -9,6 +11,8 @@ const Component=styled(Box)`
 
 const LeftComponent= styled(Box)`
     margin:20px;
+    display:flex;
+    flex-direction:column;
 `;
 
 const SmallText=styled(Typography)`
@@ -31,7 +35,8 @@ const CartItem=({item})=>{
     return(
         <Component>
             <LeftComponent>
-               <img src={item.url} alt="product"/>
+               <img src={item.url} alt="product" style={{height:110,width:110}}/>
+               <GroupedButton/>
             </LeftComponent>
             <Box style={{margin:20}}>
               <Typography>{addEllipsis(item.title.longTitle)}</Typography>
