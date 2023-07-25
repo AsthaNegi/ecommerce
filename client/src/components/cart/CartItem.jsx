@@ -7,6 +7,8 @@ import GroupedButton from "./ButtonGroup";
 const Component=styled(Box)`
    border-top:1px solid #f0f0f0;
    display:flex;
+   background:#fff;
+   
 `;
 
 const LeftComponent= styled(Box)`
