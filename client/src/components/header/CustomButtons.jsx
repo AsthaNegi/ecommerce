@@ -2,7 +2,7 @@ import {useState,useContext} from "react";
 
 import {Box,Button,Typography,styled} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import {Link} from "react-router-dom";
 
 // context 
 import {DataContext} from "../../context/DataProvider";
@@ -29,8 +29,10 @@ const Wrapper =styled(Box)(({theme})=>({
    
 
 
-const Container = styled(Box)(({theme})=>({
+const Container = styled(Link)(({theme})=>({
    display:"flex",
+   textDecoration:"none",
+   color:"#fff",
    [theme.breakpoints.down("md")]:{
       display:"block"
    }
@@ -73,7 +75,7 @@ function CustomButtons(){
         
         <Typography style={{marginTop:3,width:135}}>Become a Seller</Typography>
         <Typography>More</Typography>
-        <Container>
+        <Container to="/cart">
              <ShoppingCartIcon/>
              <Typography>Cart</Typography>
         </Container>
