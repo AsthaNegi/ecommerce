@@ -8,11 +8,14 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 
 import {getProductsReducer,getProductDetailsReducer} from "./reducers/productReducer";
+import {cartReducer} from "./reducers/cartReducer";
+
 
 // taking multiple reducers and making it as single entity
 const reducers=combineReducers({
     getProducts:getProductsReducer,
-    getProductDetails:getProductDetailsReducer
+    getProductDetails:getProductDetailsReducer,
+    cart:cartReducer
 });
 
 //initialising middleware 
