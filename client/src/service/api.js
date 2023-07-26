@@ -23,3 +23,15 @@ export const authenticateLogin= async (data)=>{
     }
 }
 
+
+export const payUsingPaytm =async(data)=>{
+   try{
+    // api call will return a responce object which will contain data key 
+    //  post api call since we are sending some data from the frontend 
+     let response=await axios.post(`${URL}/payment`,data);
+     return response.data;
+   
+   }catch(error){
+      console.log("error while calling payment api",error);
+   }
+}
