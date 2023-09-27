@@ -13,17 +13,22 @@ const app=express();
 
 dotenv.config();
 
+//using cors
 app.use(cors());
+//using body parser
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
+
+//routing
 app.use("/",Router);  // using the routers to include all the routes in the server side 
 
-const PORT=8000;
-
+//using .env variables 
 const USERNAME=process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD;
 
 Connection(USERNAME,PASSWORD);// connection is established with database
+
+const PORT=8000;
 
 app.listen(PORT,()=>{
     console.log(`Server is running on ${PORT}`);// server is running

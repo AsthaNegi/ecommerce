@@ -143,10 +143,12 @@ const LoginDialog =({open,setOpen})=>{
       let response=await authenticateLogin(login);
       console.log(response);
       if(response.status===200){
+        //user login is successful 
         handleClose();
         setAccount(response.data.data.firstname);
       }
       else{
+        //user login has failed
           setError(true);
       }
 
