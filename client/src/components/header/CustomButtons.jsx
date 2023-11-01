@@ -42,7 +42,9 @@ const Container = styled(Link)(({theme})=>({
    
 
 const LoginButton = styled(Button)`
-   color:#2874f0;
+   ${'' /* color:#2874f0;
+    */}
+    color:#0066b2;
    background:#fff;
    text-transform:none;
    padding:5px 40px;

@@ -6,6 +6,7 @@ import {navData} from "../../constants/data.js";
 
 // styling MUI components 
 
+
 const Component =styled(Box)(({theme})=>({
     display:"flex",
     margin: "55px 130px 0 130px",
@@ -21,6 +22,11 @@ const Container =styled(Box)`
    text-align:center;
 `;
 
+const Image=styled("img")({
+    width:64,
+    height:70
+})
+
 const Text=styled(Typography)`
      font-size:14px;
      font-weight:600;
@@ -35,7 +41,7 @@ function NavBar(){
             {
               navData.map(data=>(
                 <Container>
-                  <img src={data.url} style={{width:64}} alt="nav"/>
+                  <Image src={data.url}  alt="nav"/>
                   <Text>{data.text}</Text>
                 </Container>
               ))

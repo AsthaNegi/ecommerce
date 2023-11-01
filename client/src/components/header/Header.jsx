@@ -12,7 +12,8 @@ import CustomButtons from "./CustomButtons";
 import {Link} from "react-router-dom";
 
 const StyledHeader=styled(AppBar)`
-    background:#2874f0;
+    ${'' /* background:#2874f0; */}
+    background:#72A0C1;
     height:55px;
 `
 // we changed Box Component into Link Component 
@@ -53,7 +54,9 @@ const MenuButton=styled(IconButton)(({theme})=>({
 
 
 function Header(){
-    const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
+    // const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
+
+    const logoURL="https://img.colorxs.com/color-img/air-superiority-blue/color-air-superiority-blue-home-exterior-design-on-color-paint.jpg";
 
     const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
 
@@ -96,7 +99,7 @@ function Header(){
                  <img src={logoURL} alt="logo" style={{width:75}} />
                  <Box style={{display:'flex'}}>
                     <Subheading>Explore&nbsp;
-                      <Box component="span" style={{color:"#FFE500"}}>Plus</Box>
+                      <Box component="span" style={{color:"#fff"}}>More</Box>
                     </Subheading>
                     <PlusImage src={subURL} alt="sub-logo"/>
                  </Box>

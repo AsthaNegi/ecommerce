@@ -61,7 +61,7 @@ function Search(){
         <SearchContainer >
             {/* <InputBase/> */}
             <InputSearchBase 
-                  placeholder="Search for products,brands and more" 
+                  placeholder="Search for crafts,arts and more" 
                   onChange={(e)=>getText(e.target.value)}
                   value={text}
             />
